@@ -52,7 +52,7 @@ final class PsrUri implements PsrUriInterface
     /**
      * @inheritdoc
      */
-    public function getScheme()
+    public function getScheme(): string
     {
         $this->parsed or $this->marshallFromServer();
 
@@ -62,7 +62,7 @@ final class PsrUri implements PsrUriInterface
     /**
      * @inheritdoc
      */
-    public function getHost()
+    public function getHost(): string
     {
         $this->parsed or $this->marshallFromServer();
 
@@ -70,20 +70,9 @@ final class PsrUri implements PsrUriInterface
     }
 
     /**
-     * Not really implemented, because Cortex does not need it.
-     *
-     * @inheritdoc
-     * @codeCoverageIgnore
-     */
-    public function getPort()
-    {
-        return;
-    }
-
-    /**
      * @inheritdoc
      */
-    public function getPath()
+    public function getPath(): string
     {
         $this->parsed or $this->marshallFromServer();
 
@@ -93,7 +82,7 @@ final class PsrUri implements PsrUriInterface
     /**
      * @inheritdoc
      */
-    public function getQuery()
+    public function getQuery(): string
     {
         $this->parsed or $this->marshallFromServer();
 
@@ -106,7 +95,7 @@ final class PsrUri implements PsrUriInterface
      * @inheritdoc
      * @codeCoverageIgnore
      */
-    public function getAuthority()
+    public function getAuthority(): string
     {
         return '';
     }
@@ -117,7 +106,18 @@ final class PsrUri implements PsrUriInterface
      * @inheritdoc
      * @codeCoverageIgnore
      */
-    public function getUserInfo()
+    public function getPort(): ?int
+    {
+        return 0;
+    }
+
+    /**
+     * Not really implemented, because Cortex does not need it.
+     *
+     * @inheritdoc
+     * @codeCoverageIgnore
+     */
+    public function getUserInfo(): string
     {
         return '';
     }
@@ -128,7 +128,7 @@ final class PsrUri implements PsrUriInterface
      * @inheritdoc
      * @codeCoverageIgnore
      */
-    public function getFragment()
+    public function getFragment(): string
     {
         return '';
     }
@@ -138,7 +138,7 @@ final class PsrUri implements PsrUriInterface
      *
      * @inheritdoc
      */
-    public function withScheme($scheme)
+    public function withScheme($scheme): PsrUriInterface
     {
         throw new \BadMethodCallException(sprintf('%s is read-only.', __CLASS__));
     }
@@ -148,7 +148,7 @@ final class PsrUri implements PsrUriInterface
      *
      * @inheritdoc
      */
-    public function withUserInfo($user, $password = null)
+    public function withUserInfo($user, $password = null): PsrUriInterface
     {
         throw new \BadMethodCallException(sprintf('%s is read-only.', __CLASS__));
     }
@@ -158,7 +158,7 @@ final class PsrUri implements PsrUriInterface
      *
      * @inheritdoc
      */
-    public function withHost($host)
+    public function withHost($host): PsrUriInterface
     {
         throw new \BadMethodCallException(sprintf('%s is read-only.', __CLASS__));
     }
@@ -168,7 +168,7 @@ final class PsrUri implements PsrUriInterface
      *
      * @inheritdoc
      */
-    public function withPort($port)
+    public function withPort($port): PsrUriInterface
     {
         throw new \BadMethodCallException(sprintf('%s is read-only.', __CLASS__));
     }
@@ -178,7 +178,7 @@ final class PsrUri implements PsrUriInterface
      *
      * @inheritdoc
      */
-    public function withPath($path)
+    public function withPath($path): PsrUriInterface
     {
         throw new \BadMethodCallException(sprintf('%s is read-only.', __CLASS__));
     }
@@ -188,7 +188,7 @@ final class PsrUri implements PsrUriInterface
      *
      * @inheritdoc
      */
-    public function withQuery($query)
+    public function withQuery($query): PsrUriInterface
     {
         throw new \BadMethodCallException(sprintf('%s is read-only.', __CLASS__));
     }
@@ -198,7 +198,7 @@ final class PsrUri implements PsrUriInterface
      *
      * @inheritdoc
      */
-    public function withFragment($fragment)
+    public function withFragment($fragment): PsrUriInterface
     {
         throw new \BadMethodCallException(sprintf('%s is read-only.', __CLASS__));
     }
@@ -206,7 +206,7 @@ final class PsrUri implements PsrUriInterface
     /**
      * @inheritdoc
      */
-    public function __toString()
+    public function __toString(): string
     {
         $this->parsed or $this->marshallFromServer();
 
