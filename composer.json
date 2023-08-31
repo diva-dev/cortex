@@ -1,6 +1,7 @@
 {
     "name":              "diva-dev/cortex",
     "description":       "Cortex is a package that implements a routing system in WordPress.",
+    "type": "wordpress-plugin",
     "keywords":          [
         "wordpress",
         "routing",
