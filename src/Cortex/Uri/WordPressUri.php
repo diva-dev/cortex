@@ -70,10 +70,14 @@ final class WordPressUri implements UriInterface
          * `example.com/subfolder` we need to strip down `/subfolder` from path and build a path
          * for route matching that is relative to home url.
          */
-        $homePath = trim(parse_url(home_url(), PHP_URL_PATH), '/');
         $path = trim($this->uri->getPath(), '/');
-        if ($homePath && strpos($path, $homePath) === 0) {
-            $path = trim(substr($path, strlen($homePath)), '/');
+
+        if (PHP_URL_PATH === null) {
+            $homePath = trim(parse_url(home_url(), PHP_URL_PATH), '/');
+
+            if ($homePath && strpos($path, $homePath) === 0) {
+                $path = trim(substr($path, strlen($homePath)), '/');
+            }
         }
 
         return $path ? : '/';

@@ -60,7 +60,7 @@ trait DerivativeRouteTrait
      * @param string $offset
      * @param mixed  $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->route->offsetSet($offset, $value);
     }
@@ -69,7 +69,7 @@ trait DerivativeRouteTrait
      * @see RouteInterface::offsetUnset()
      * @param string $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         $this->route->offsetUnset($offset);
     }
