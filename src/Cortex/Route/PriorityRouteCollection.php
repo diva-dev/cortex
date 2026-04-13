@@ -22,7 +22,7 @@ final class PriorityRouteCollection implements RouteCollectionInterface
     /**
      * @var \SplPriorityQueue
      */
-    private SplPriorityQueue $queue;
+    private \SplPriorityQueue $queue;
 
     /**
      * @var array
