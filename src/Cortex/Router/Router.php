@@ -69,8 +69,8 @@ final class Router implements RouterInterface
     public function __construct(
         RouteCollectionInterface $routes,
         GroupCollectionInterface $groups,
-        RouteCollector $collector = null,
-        callable $dispatcherFactory = null
+        ?RouteCollector $collector = null,
+        ?callable $dispatcherFactory = null
     ) {
         $this->groups = $groups;
         $this->routes = $routes;

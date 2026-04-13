@@ -40,7 +40,7 @@ trait DerivativeRouteTrait
      * @param  string $offset
      * @return bool
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return $this->route->offsetExists($offset);
     }

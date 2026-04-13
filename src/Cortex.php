@@ -45,7 +45,7 @@ class Cortex
      * @return bool
      * @throws \Exception
      */
-    public static function boot(RequestInterface $request = null)
+    public static function boot(?RequestInterface $request = null)
     {
         try {
             if (self::$booted) {
@@ -110,7 +110,7 @@ class Cortex
      * @param  \Psr\Http\Message\RequestInterface|null $request
      * @return bool
      */
-    private function doBoot(\WP $wp, $do, RequestInterface $request = null)
+    private function doBoot(\WP $wp, $do, ?RequestInterface $request = null)
     {
         $uri = $this->factoryUri($request);
         $method = $this->getMethod($request);
@@ -136,7 +136,7 @@ class Cortex
      * @param  callable|null $default
      * @return object
      */
-    private function factoryByHook($name, $abstract = null, callable $default = null)
+    private function factoryByHook($name, $abstract = null, ?callable $default = null)
     {
         $thing = apply_filters("cortex.{$name}.instance", null);
         if (
@@ -158,7 +158,7 @@ class Cortex
      * @param  \Psr\Http\Message\RequestInterface $request
      * @return \Brain\Cortex\Uri\UriInterface
      */
-    private function factoryUri(RequestInterface $request = null)
+    private function factoryUri(?RequestInterface $request = null)
     {
         $psrUri = is_null($request) ? null : $request->getUri();
 
@@ -180,7 +180,7 @@ class Cortex
      * @param  \Psr\Http\Message\RequestInterface|null $request
      * @return string
      */
-    private function getMethod(RequestInterface $request = null)
+    private function getMethod(?RequestInterface $request = null)
     {
         if ($request) {
             return $request->getMethod();

@@ -79,7 +79,7 @@ final class PriorityRouteCollection implements RouteCollectionInterface
     /**
      * @inheritdoc
      */
-    public function next()
+    public function next(): void
     {
         $this->queue->next();
     }
@@ -95,7 +95,7 @@ final class PriorityRouteCollection implements RouteCollectionInterface
     /**
      * @inheritdoc
      */
-    public function valid()
+    public function valid(): bool
     {
         return $this->queue->valid();
     }
@@ -103,7 +103,7 @@ final class PriorityRouteCollection implements RouteCollectionInterface
     /**
      * @inheritdoc
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->queue->rewind();
     }
@@ -111,7 +111,7 @@ final class PriorityRouteCollection implements RouteCollectionInterface
     /**
      * @inheritdoc
      */
-    public function count()
+    public function count(): int
     {
         return $this->queue->count();
     }
